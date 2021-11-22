@@ -1,0 +1,18 @@
+service: cs518-lab8-automatic-deployment-aws
+provider:
+  name: azure
+  region: East US
+  os: linux
+  runtime: python3.8
+  prefix: lab8-mac1271
+plugins:
+  - serverless-azure-functions
+functions:
+  motivate:
+    handler: scrap.quote
+    events:
+      - http: true
+        methods:
+          - GET
+        authLevel: anonymous
+  
